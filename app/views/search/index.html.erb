@@ -1,5 +1,19 @@
-<h1>Order Of The Phoenix Members From House Gryffindor</h1>
+<h1>Order Of The Phoenix Members From House <%= @members.first[:house] %></h1>
+
 <h3>Total: <%= @members.count %></h3>
+
 <% @members.each do |member| %>
-  <li><%= member[:name] %></li>
+  Name: <%= member[:name] %><br>
+  <% if member[:role] %>
+    Role: <%= member[:role] %><br>
+  <% else %>
+    Role: none <br>
+  <% end %>
+  House: <%= member[:house] %><br>
+  <% if member[:patronus] %>
+    Patronus: <%= member[:patronus] %><br>
+  <% else %>
+    Patronus: none <br>
+  <% end %>
+  <br>
 <% end %>

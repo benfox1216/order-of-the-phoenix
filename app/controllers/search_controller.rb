@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     json = JSON.parse(response.body, symbolize_names: true)
     
     @members = json.map do |char|
-      if char[:house] == "Gryffindor" && char[:orderOfThePhoenix] == true
+      if char[:house] == "#{params[:house]}" && char[:orderOfThePhoenix] == true
         char
       end
     end.compact
