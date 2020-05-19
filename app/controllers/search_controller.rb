@@ -4,8 +4,13 @@ class SearchController < ApplicationController
       f.params['key'] = ENV['HP_API_KEY']
     end
     
-    response = conn.get("houses")
+    response = conn.get('characters')
     json = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
+    
+    @members = json.map do |char|
+      if char[:house] == "Gryffindor" && char[:orderOfThePhoenix] == true
+        char
+      end
+    end.compact
   end
 end

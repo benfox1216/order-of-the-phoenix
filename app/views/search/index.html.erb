@@ -1,0 +1,5 @@
+<h1>Order Of The Phoenix Members From House Gryffindor</h1>
+<h3>Total: <%= @members.count %></h3>
+<% @members.each do |member| %>
+  <li><%= member[:name] %></li>
+<% end %>
